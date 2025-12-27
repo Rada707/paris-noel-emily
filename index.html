@@ -1,0 +1,1906 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>París & Región - 10 días 🎄</title>
+  <style>
+    :root{
+      --bg:#FFE5E0;
+      --card:rgba(255,255,255,.98);
+      --card2:rgba(255,229,224,.98);
+      --stroke:rgba(220,38,38,.2);
+      --txt:#1A0A0A;
+      --muted:#6B1A1A;
+      --muted2:#8B2A2A;
+      --accent:#DC2626;
+      --accent2:#B91C1C;
+      --gold:#D97706;
+      --gold-light:#F59E0B;
+      --gold-dark:#B45309;
+      --shadow: 0 8px 30px rgba(220,38,38,.15);
+      --radius:18px;
+      --radius2:26px;
+      --max:1150px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(2000px 1200px at 10% -5%, rgba(220,38,38,.55) 0%, rgba(220,38,38,.35) 20%, rgba(220,38,38,.18) 45%, rgba(220,38,38,.06) 70%, rgba(220,38,38,.02) 90%, transparent 100%),
+        radial-gradient(1800px 1000px at 90% 5%, rgba(185,28,28,.50) 0%, rgba(185,28,28,.28) 25%, rgba(185,28,28,.12) 50%, rgba(185,28,28,.04) 75%, transparent 100%),
+        radial-gradient(1600px 900px at 35% 110%, rgba(220,38,38,.52) 0%, rgba(220,38,38,.30) 30%, rgba(220,38,38,.12) 55%, rgba(220,38,38,.03) 80%, transparent 100%),
+        radial-gradient(1500px 850px at 70% 85%, rgba(153,27,27,.45) 0%, rgba(153,27,27,.25) 30%, rgba(153,27,27,.10) 55%, rgba(153,27,27,.02) 80%, transparent 100%),
+        radial-gradient(1700px 950px at 50% 20%, rgba(220,38,38,.42) 0%, rgba(220,38,38,.22) 35%, rgba(220,38,38,.08) 60%, rgba(220,38,38,.02) 85%, transparent 100%),
+        radial-gradient(1400px 750px at 20% 50%, rgba(185,28,28,.38) 0%, rgba(185,28,28,.18) 40%, rgba(185,28,28,.05) 70%, transparent 100%),
+        radial-gradient(1300px 700px at 75% 60%, rgba(220,38,38,.35) 0%, rgba(220,38,38,.15) 45%, rgba(220,38,38,.04) 75%, transparent 100%),
+        radial-gradient(1500px 800px at 60% 40%, rgba(153,27,27,.32) 0%, rgba(153,27,27,.14) 45%, rgba(153,27,27,.04) 75%, transparent 100%),
+        radial-gradient(1600px 900px at 5% 50%, rgba(220,38,38,.28) 0%, rgba(220,38,38,.12) 50%, transparent 100%),
+        radial-gradient(1400px 750px at 95% 70%, rgba(185,28,28,.25) 0%, rgba(185,28,28,.10) 55%, transparent 100%),
+        var(--bg);
+      color:var(--txt);
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px; position:relative; z-index:2}
+
+    /* Top bar */
+    .topbar{
+      position:fixed; top:0; left:0; right:0; z-index:50;
+      background:rgba(255,255,255,.98);
+      backdrop-filter: blur(10px);
+      border-bottom:2px solid rgba(220,38,38,.25);
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 8px rgba(220,38,38,.15);
+    }
+    .topbar.hidden{
+      transform: translateY(-100%);
+    }
+    .topbar-inner{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background: linear-gradient(135deg, #DC2626, #D97706);
+      box-shadow: 0 4px 12px rgba(220,38,38,.3);
+      border:1px solid rgba(217,119,6,.3);
+      position: relative;
+    }
+    .logo::before{
+      content: '🎁';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .brand h1{font-size:14px; letter-spacing:.4px; margin:0; line-height:1.1}
+    .brand .sub{display:block; font-size:12px; color:var(--muted2); margin-top:2px}
+
+    .nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      font-size:12px; color:var(--muted);
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(100,120,150,.15);
+      background:rgba(255,255,255,.6);
+      transition:.25s ease;
+      white-space:nowrap;
+    }
+    .pill:hover{transform:translateY(-1px); border-color:var(--accent); background:rgba(255,255,255,.9); color:var(--accent)}
+
+    /* Hero */
+    .hero{position:relative; padding:20px 0 20px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero{padding-top:28px}
+      .hero-grid{grid-template-columns:1fr;}
+    }
+
+    .hero-card{
+      position:relative;
+      border-radius:var(--radius2);
+      background:rgba(255,255,255,.75);
+      border:1px solid rgba(100,120,150,.12);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      min-height: 420px;
+    }
+    .hero-media{
+      position:absolute; inset:0;
+      background-image: url('https://s1.1zoom.me/big0/488/France_Paris_Eiffel_443254.jpg');
+      background-size:cover;
+      background-position:center;
+      filter:saturate(1.05) contrast(1.08);
+      transform:scale(1.02);
+    }
+    .hero-content{position:relative; padding:26px}
+    .kicker{display:inline-flex; align-items:center; gap:10px; font-size:12px; color:#FCD34D; font-weight: 600; text-shadow: 0 0 10px rgba(252,211,77,.8), 0 0 20px rgba(252,211,77,.6), 0 0 30px rgba(252,211,77,.4), 0 2px 8px rgba(0,0,0,.5);}
+    .dot{width:8px; height:8px; border-radius:50%; background:#D97706; box-shadow:0 0 10px rgba(217,119,6,.8), 0 0 20px rgba(217,119,6,.5), 0 0 0 4px rgba(217,119,6,.4)}
+    .title{font-size:44px; line-height:1.02; margin:14px 0 12px; letter-spacing:-.7px; color:#D97706; font-weight: 700; text-shadow: 0 0 15px rgba(217,119,6,.9), 0 0 25px rgba(217,119,6,.7), 0 0 35px rgba(217,119,6,.5), 0 0 50px rgba(217,119,6,.3), 0 2px 12px rgba(0,0,0,.6);}
+    .title span{color:#F59E0B; text-shadow: 0 0 15px rgba(245,158,11,.9), 0 0 25px rgba(245,158,11,.7), 0 0 35px rgba(245,158,11,.5), 0 0 50px rgba(245,158,11,.3), 0 2px 12px rgba(0,0,0,.7);}
+    @media (max-width: 520px){.title{font-size:34px}}
+    .lead{color:#FCD34D; margin:0 0 18px; max-width:58ch; font-weight: 500; text-shadow: 0 0 10px rgba(252,211,77,.8), 0 0 20px rgba(252,211,77,.6), 0 0 30px rgba(252,211,77,.4), 0 2px 8px rgba(0,0,0,.5);}
+    .cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:11px 14px;
+      border-radius:14px;
+      border:1px solid rgba(100,120,150,.2);
+      background:rgba(255,255,255,.9);
+      color:var(--txt);
+      transition:.25s ease;
+      font-size:13px;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,1); border-color:var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,.08)}
+    .btn.primary{
+      background: linear-gradient(135deg, #DC2626, #D97706);
+      border-color: transparent;
+      box-shadow: 0 4px 16px rgba(220,38,38,.3);
+      color:white;
+    }
+    .btn.primary:hover{filter:brightness(1.05); box-shadow: 0 6px 20px rgba(220,38,38,.4)}
+
+    .side{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .mini{
+      border-radius:var(--radius2);
+      border:1px solid rgba(100,120,150,.12);
+      background:rgba(255,255,255,.8);
+      box-shadow: 0 4px 16px rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .mini .img{
+      height:170px;
+      background-size:cover;
+      background-position:center;
+      filter:saturate(1.06) contrast(1.05);
+    }
+    .mini .body{padding:14px 14px 16px}
+    .mini h3{margin:0 0 6px; font-size:14px; letter-spacing:.2px}
+    .mini p{margin:0; color:var(--muted2); font-size:12.5px; line-height:1.35}
+
+    /* Sections */
+    section{padding:26px 0}
+    .section-head{
+      display:flex; 
+      align-items:flex-end; 
+      justify-content:space-between; 
+      gap:16px; 
+      margin-bottom:20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, rgba(220,38,38,.6), rgba(217,119,6,.5), rgba(220,38,38,.4), transparent) 1;
+    }
+    .section-head h2{
+      margin:0; 
+      font-size:28px; 
+      letter-spacing:-.5px;
+      background: linear-gradient(135deg, var(--txt), var(--muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-head .hint{
+      color:var(--muted2); 
+      font-size:13px;
+      padding: 6px 12px;
+      background: rgba(255,255,255,.04);
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    /* Highlights grid */
+    .grid{display:grid; grid-template-columns:repeat(12, 1fr); gap:14px}
+    .card{
+      grid-column: span 4;
+      border-radius:var(--radius);
+      border:1px solid rgba(100,120,150,.12);
+      background:rgba(255,255,255,.85);
+      overflow:hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,.06);
+      transition:.25s ease;
+      cursor:pointer;
+    }
+    .card:hover{transform:translateY(-2px); border-color:var(--accent); background:rgba(255,255,255,1); box-shadow: 0 8px 24px rgba(0,0,0,.1)}
+    .card .media{height:150px; background-size:cover; background-position:center}
+    .card .content{padding:12px 12px 14px}
+    .tag{display:inline-flex; align-items:center; gap:8px; font-size:11.5px; color:rgba(255,255,255,.75)}
+    .tag b{font-weight:600; color:rgba(255,255,255,.9)}
+    .card h4{margin:8px 0 6px; font-size:14px}
+    .card p{margin:0; color:var(--muted2); font-size:12.5px; line-height:1.35}
+
+    @media (max-width: 980px){
+      .card{grid-column: span 6}
+    }
+    @media (max-width: 620px){
+      .card{grid-column: span 12}
+    }
+
+    /* Itinerary - Design Premium */
+    .itinerary{
+      background: transparent;
+      border-radius: var(--radius2);
+      overflow:visible;
+      min-height: 100vh;
+    }
+    
+    /* Navigation sticky des jours */
+    .tabs{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display:flex; 
+      gap:10px; 
+      padding:14px 20px; 
+      flex-wrap:wrap;
+      border-radius: 0;
+      background: rgba(255,255,255,.98);
+      backdrop-filter: blur(20px);
+      border-bottom:2px solid rgba(220,38,38,.25);
+      box-shadow: 0 4px 12px rgba(220,38,38,.15);
+      justify-content: center;
+      transform: translateY(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .tabs.hidden{
+      transform: translateY(-100%);
+    }
+    
+    .tab{
+      font-size:13px;
+      font-weight: 500;
+      padding:12px 18px;
+      border-radius:12px;
+      border:1px solid rgba(100,120,150,.15);
+      background:rgba(255,255,255,.8);
+      color:var(--muted);
+      cursor:pointer;
+      user-select:none;
+      transition:.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .tab:hover{
+      transform: translateY(-2px);
+      border-color:var(--accent); 
+      background:rgba(255,255,255,1);
+      box-shadow: 0 4px 12px rgba(220,38,38,.12);
+      color:var(--accent);
+    }
+    
+    .tab.active{
+      background: linear-gradient(135deg, #DC2626, #D97706); 
+      border-color: transparent; 
+      color:white;
+      box-shadow: 0 4px 16px rgba(220,38,38,.35);
+      transform: translateY(-1px);
+    }
+
+    /* Journées - Design carte premium */
+    .day{
+      display:block; 
+      scroll-margin-top:140px;
+      margin-bottom: 32px;
+      opacity: 1;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px)}
+      to {opacity: 1; transform: translateY(0)}
+    }
+    
+    .day.active{display:block}
+
+    .day-grid{
+      display:grid; 
+      grid-template-columns: 1.2fr .8fr; 
+      gap:20px; 
+      padding:0;
+      position: relative;
+    }
+    @media (max-width: 900px){.day-grid{grid-template-columns:1fr}}
+
+    /* Carte principale du jour */
+    .day-main{
+      border-radius: var(--radius2);
+      border:1px solid rgba(100,120,150,.15);
+      background: rgba(255,255,255,.9);
+      overflow:hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      transition: .3s ease;
+      position: relative;
+    }
+    
+    .day-main:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.12);
+      border-color: var(--accent);
+    }
+    
+    .day-main .heroimg{
+      height:280px; 
+      background-size:cover; 
+      background-position:center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .day-main .box{
+      padding:20px 22px 24px;
+      position: relative;
+    }
+    
+    .day-main h3{
+      margin:0 0 16px; 
+      font-size:22px;
+      letter-spacing: -.3px;
+      background: linear-gradient(135deg, var(--txt), var(--muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Numéro de jour */
+    .day-main::before{
+      content: attr(data-day-number);
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #DC2626, #D97706);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 4px 16px rgba(220,38,38,.35);
+      z-index: 2;
+    }
+    
+    .bullets{
+      margin:0; 
+      padding:0; 
+      list-style:none; 
+      display:grid; 
+      gap:12px;
+    }
+    
+    .bullets li{
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(100,120,150,.12);
+      background: rgba(255,255,255,.8);
+      color: var(--txt);
+      font-size:14px;
+      line-height:1.4;
+      transition: .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .bullets li::before{
+      content: '→';
+      position: absolute;
+      left: 16px;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: .25s ease;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    
+    .bullets li:hover{
+      transform: translateX(4px);
+      border-color: var(--accent);
+      background: rgba(255,255,255,1);
+      padding-left: 32px;
+    }
+    
+    .bullets li:hover::before{
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .bullets li small{
+      display:block; 
+      color:var(--muted2); 
+      margin-top:6px; 
+      font-size:12.5px;
+      line-height: 1.4;
+    }
+
+    /* Sidebar du jour */
+    .day-side{display:grid; gap:16px}
+    
+    .info{
+      border-radius: var(--radius2);
+      border:1px solid rgba(100,120,150,.12);
+      background: rgba(255,255,255,.9);
+      padding:18px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.06);
+      transition: .3s ease;
+    }
+    
+    .info:hover{
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(0,0,0,.1);
+    }
+    
+    .info h4{
+      margin:0 0 12px; 
+      font-size:14px; 
+      color:rgba(255,255,255,.95);
+      font-weight: 600;
+      letter-spacing: .2px;
+    }
+    
+    .kpi{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px}
+    @media (max-width: 520px){.kpi{grid-template-columns:1fr}}
+    
+    .kpi .tile{
+      border-radius:14px;
+      border:1px solid rgba(100,120,150,.12);
+      background: rgba(255,255,255,.8);
+      padding:12px 10px;
+      text-align: center;
+      transition: .25s ease;
+    }
+    
+    .kpi .tile:hover{
+      transform: scale(1.05);
+      border-color: var(--accent);
+      background: rgba(255,255,255,1);
+      box-shadow: 0 4px 12px rgba(220,38,38,.15);
+    }
+    
+    .kpi .tile b{
+      display:block; 
+      font-size:13px;
+      color: var(--txt);
+      margin-bottom: 4px;
+    }
+    
+    .kpi .tile span{
+      display:block; 
+      font-size:11.5px; 
+      color:var(--muted2);
+    }
+
+    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+
+    /* Footer */
+    footer{padding:34px 0 60px; color:rgba(255,255,255,.62)}
+    .foot{
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding:18px;
+      display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between;
+    }
+    .foot b{color:rgba(255,255,255,.86)}
+
+    /* Modal gallery */
+    .modal{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.72);
+      display:none;
+      align-items:center; justify-content:center;
+      padding:18px;
+      z-index:100;
+    }
+    .modal.show{display:flex}
+    .modal-card{
+      width:min(1100px, 100%);
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(10,14,26,.90);
+      box-shadow: 0 30px 120px rgba(0,0,0,.75);
+    }
+    .modal-top{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 12px 12px 14px; border-bottom:1px solid rgba(255,255,255,.12)}
+    .modal-top .t{font-size:13px; color:rgba(255,255,255,.86)}
+    .x{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:rgba(255,255,255,.88);
+      border-radius:12px;
+      padding:8px 10px;
+      cursor:pointer;
+    }
+    .x:hover{background: rgba(255,255,255,.09)}
+    .modal-img{width:100%; height: min(70vh, 650px); object-fit:cover; display:block}
+
+    /* Décorations de Noël aléatoires */
+    .christmas-decoration{
+      position: fixed;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.2;
+      font-size: 40px;
+      animation: float 6s ease-in-out infinite;
+      user-select: none;
+      filter: drop-shadow(0 2px 4px rgba(220,38,38,.3));
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
+    .christmas-decoration:nth-child(2n) {
+      animation-duration: 8s;
+      animation-delay: -2s;
+    }
+    
+    .christmas-decoration:nth-child(3n) {
+      animation-duration: 7s;
+      animation-delay: -4s;
+    }
+    
+    .christmas-decoration:nth-child(4n) {
+      animation-duration: 9s;
+      animation-delay: -1s;
+    }
+    
+    .christmas-decoration:nth-child(5n) {
+      animation-duration: 6.5s;
+      animation-delay: -3s;
+    }
+
+    /* Banner Noël avec effet néon doré */
+    .christmas-banner{
+      position: relative;
+      width: 100%;
+      padding: 10px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(220,38,38,.25), rgba(217,119,6,.20));
+      border-bottom: 2px solid rgba(217,119,6,.4);
+      z-index: 10;
+      margin-top: 66px;
+      margin-bottom: 0;
+    }
+    
+    .christmas-banner h1{
+      margin: 0;
+      padding: 0;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #FCD34D;
+      text-shadow: 
+        0 0 15px rgba(252,211,77,1),
+        0 0 25px rgba(252,211,77,.9),
+        0 0 35px rgba(252,211,77,.7),
+        0 0 50px rgba(252,211,77,.5),
+        0 0 70px rgba(252,211,77,.3),
+        0 2px 8px rgba(0,0,0,.5),
+        0 4px 12px rgba(0,0,0,.3);
+      letter-spacing: 2px;
+      animation: neonPulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes neonPulse {
+      0%, 100% { 
+        text-shadow: 
+          0 0 15px rgba(252,211,77,1),
+          0 0 25px rgba(252,211,77,.9),
+          0 0 35px rgba(252,211,77,.7),
+          0 0 50px rgba(252,211,77,.5),
+          0 0 70px rgba(252,211,77,.3),
+          0 2px 8px rgba(0,0,0,.5),
+          0 4px 12px rgba(0,0,0,.3);
+      }
+      50% { 
+        text-shadow: 
+          0 0 20px rgba(252,211,77,1),
+          0 0 30px rgba(252,211,77,1),
+          0 0 45px rgba(252,211,77,.8),
+          0 0 65px rgba(252,211,77,.6),
+          0 0 85px rgba(252,211,77,.4),
+          0 2px 8px rgba(0,0,0,.5),
+          0 4px 12px rgba(0,0,0,.3);
+      }
+    }
+    
+    @media (max-width: 620px){
+      .christmas-banner h1{font-size: 32px; letter-spacing: 1px;}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto !important; transition:none !important; animation:none !important}
+      .christmas-decoration{animation:none}
+      .christmas-banner h1{animation:none}
+    }
+    
+    /* Print styles - Forcer l'affichage des images et fonds */
+    @media print {
+      @page {
+        margin: 0;
+        size: A4;
+      }
+      
+      html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+      html, body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background: #FFE5E0 !important;
+        background-color: #FFE5E0 !important;
+        background-image: 
+          radial-gradient(2000px 1200px at 10% -5%, rgba(220,38,38,.55) 0%, rgba(220,38,38,.35) 20%, rgba(220,38,38,.18) 45%, rgba(220,38,38,.06) 70%, rgba(220,38,38,.02) 90%, transparent 100%),
+          radial-gradient(1800px 1000px at 90% 5%, rgba(185,28,28,.50) 0%, rgba(185,28,28,.28) 25%, rgba(185,28,28,.12) 50%, rgba(185,28,28,.04) 75%, transparent 100%),
+          radial-gradient(1600px 900px at 35% 110%, rgba(220,38,38,.52) 0%, rgba(220,38,38,.30) 30%, rgba(220,38,38,.12) 55%, rgba(220,38,38,.03) 80%, transparent 100%),
+          radial-gradient(1500px 850px at 70% 85%, rgba(153,27,27,.45) 0%, rgba(153,27,27,.25) 30%, rgba(153,27,27,.10) 55%, rgba(153,27,27,.02) 80%, transparent 100%),
+          radial-gradient(1700px 950px at 50% 20%, rgba(220,38,38,.42) 0%, rgba(220,38,38,.22) 35%, rgba(220,38,38,.08) 60%, rgba(220,38,38,.02) 85%, transparent 100%),
+          radial-gradient(1400px 750px at 20% 50%, rgba(185,28,28,.38) 0%, rgba(185,28,28,.18) 40%, rgba(185,28,28,.05) 70%, transparent 100%),
+          radial-gradient(1300px 700px at 75% 60%, rgba(220,38,38,.35) 0%, rgba(220,38,38,.15) 45%, rgba(220,38,38,.04) 75%, transparent 100%),
+          radial-gradient(1500px 800px at 60% 40%, rgba(153,27,27,.32) 0%, rgba(153,27,27,.14) 45%, rgba(153,27,27,.04) 75%, transparent 100%),
+          radial-gradient(1600px 900px at 5% 50%, rgba(220,38,38,.28) 0%, rgba(220,38,38,.12) 50%, transparent 100%),
+          radial-gradient(1400px 750px at 95% 70%, rgba(185,28,28,.25) 0%, rgba(185,28,28,.10) 55%, transparent 100%),
+          #FFE5E0 !important;
+      }
+      
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      .hero-media {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        position: absolute !important;
+        inset: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+        min-height: 400px !important;
+      }
+      
+      .hero {
+        position: relative !important;
+        min-height: 400px !important;
+      }
+      
+      .day-main .heroimg {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        height: 280px !important;
+        min-height: 280px !important;
+        max-height: 280px !important;
+        width: 100% !important;
+        display: block !important;
+        page-break-inside: avoid !important;
+      }
+      
+      .mini .img {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        height: 170px !important;
+        min-height: 170px !important;
+        max-height: 170px !important;
+        width: 100% !important;
+        display: block !important;
+        page-break-inside: avoid !important;
+      }
+      
+      .card .media {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        height: 150px !important;
+        min-height: 150px !important;
+        max-height: 150px !important;
+        width: 100% !important;
+        display: block !important;
+        page-break-inside: avoid !important;
+      }
+      
+      .card {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      
+      .card .content {
+        padding: 12px 12px 14px !important;
+        margin: 0 !important;
+      }
+      
+      .card-grid {
+        gap: 0 !important;
+        row-gap: 0 !important;
+        column-gap: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+      .mini {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      
+      .mini .content {
+        padding: 10px 12px !important;
+        margin: 0 !important;
+      }
+      
+      .day-grid {
+        gap: 0 !important;
+        row-gap: 0 !important;
+        column-gap: 0 !important;
+      }
+      
+      .day-main,
+      .info {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+      .day-main .content {
+        padding: 16px 20px !important;
+        margin: 0 !important;
+      }
+      
+      .info .content {
+        padding: 16px 20px !important;
+        margin: 0 !important;
+      }
+      
+      [style*="background-image"] {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+      }
+      
+      .card,
+      .hero-card,
+      .day-main,
+      .info,
+      .mini {
+        background: rgba(255,255,255,.98) !important;
+        background-color: rgba(255,255,255,.98) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        border: 1px solid rgba(220,38,38,.15) !important;
+      }
+      
+      .topbar,
+      .tabs {
+        background: rgba(255,255,255,.98) !important;
+        background-color: rgba(255,255,255,.98) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      .christmas-banner {
+        background: linear-gradient(135deg, rgba(220,38,38,.25), rgba(217,119,6,.20)) !important;
+        background-color: rgba(220,38,38,.25) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      img {
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-inside: avoid !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      /* Contrôle des sauts de page */
+      section {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      
+      .hero {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      
+      .day {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-before: auto !important;
+        break-before: auto !important;
+        orphans: 3 !important;
+        widows: 3 !important;
+      }
+      
+      .day-grid {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      
+      .day-main {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      
+      .card {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-before: auto !important;
+        break-before: auto !important;
+      }
+      
+      .hero-card {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      
+      .mini {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      
+      .bullets li {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      
+      .info {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      
+      h2, h3, h4 {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        orphans: 4 !important;
+        widows: 4 !important;
+      }
+      
+      /* Forcer les titres à être reportés en haut de page si pas assez d'espace */
+      h2:not(:first-child),
+      h3:not(:first-child),
+      h4:not(:first-child) {
+        page-break-before: always !important;
+        break-before: page !important;
+      }
+      
+      /* Si un titre est trop proche du bas, le reporter */
+      h2, h3, h4 {
+        margin-top: 0 !important;
+        padding-top: 20px !important;
+      }
+      
+      h2 + *, h3 + *, h4 + * {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+      }
+      
+      .section-head {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-before: always !important;
+        break-before: page !important;
+      }
+      
+      .section-head + * {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+      }
+      
+      .day-main h3 {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        page-break-before: always !important;
+        break-before: page !important;
+      }
+      
+      .day-main h3 + * {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+      }
+      
+      .card h4,
+      .mini h3 {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+      }
+      
+      .card h4 + *,
+      .mini h3 + * {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+      }
+      
+      /* Éviter qu'un jour commence trop bas sur une page */
+      .day:not(:first-child) {
+        page-break-before: always !important;
+        break-before: page !important;
+      }
+      
+      .grid {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      
+      .christmas-decoration {
+        display: none !important;
+      }
+      
+      .modal {
+        display: none !important;
+      }
+      
+      .topbar,
+      .tabs {
+        display: none !important;
+      }
+    }
+  
+    /* Full itinerary (all days visible at the end) */
+    .itinerary.full .day{display:block !important}
+    .itinerary.full .tabs{display:none}
+    .itinerary.full .day-grid{border-top:1px solid rgba(255,255,255,.10)}
+    .itinerary.full .day:first-of-type .day-grid{border-top:none}
+
+</style>
+</head>
+<body>
+  <!-- Décorations de Noël aléatoires -->
+  <div class="christmas-decoration" style="top: 15%; left: 8%; font-size: 35px;">🎁</div>
+  <div class="christmas-decoration" style="top: 25%; right: 12%; font-size: 45px;">🎄</div>
+  <div class="christmas-decoration" style="top: 40%; left: 5%; font-size: 30px;">❄️</div>
+  <div class="christmas-decoration" style="top: 55%; right: 8%; font-size: 40px;">🎁</div>
+  <div class="christmas-decoration" style="top: 70%; left: 10%; font-size: 35px;">✨</div>
+  <div class="christmas-decoration" style="top: 20%; left: 50%; font-size: 30px;">❄️</div>
+  <div class="christmas-decoration" style="top: 60%; right: 15%; font-size: 40px;">🎄</div>
+  <div class="christmas-decoration" style="top: 80%; left: 20%; font-size: 35px;">🎁</div>
+  <div class="christmas-decoration" style="top: 35%; right: 5%; font-size: 30px;">✨</div>
+  <div class="christmas-decoration" style="top: 75%; right: 25%; font-size: 40px;">❄️</div>
+  <div class="christmas-decoration" style="top: 45%; left: 15%; font-size: 35px;">🎄</div>
+  <div class="christmas-decoration" style="top: 90%; left: 8%; font-size: 30px;">🎁</div>
+  <div class="christmas-decoration" style="top: 10%; right: 20%; font-size: 40px;">✨</div>
+  <div class="christmas-decoration" style="top: 50%; left: 3%; font-size: 35px;">❄️</div>
+  <div class="christmas-decoration" style="top: 65%; right: 10%; font-size: 30px;">🎄</div>
+  <div class="christmas-decoration" style="top: 30%; left: 25%; font-size: 40px;">🎁</div>
+  <div class="christmas-decoration" style="top: 85%; right: 18%; font-size: 35px;">✨</div>
+  <div class="christmas-decoration" style="top: 5%; left: 18%; font-size: 30px;">❄️</div>
+  
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>París & Región - 10 días</h1>
+          <span class="sub">Monumentos, Disney, Center Parcs, actividades divertidas</span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Navegación">
+        <a class="pill" href="#highlights">Momentos destacados</a>
+        <a class="pill" href="#programme">Programa día por día</a>
+        <a class="pill" href="#services">Información práctica</a>
+        <a class="pill" href="#notes">Notas y opciones</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="christmas-banner">
+    <h1>🎄 ¡Feliz Navidad Emily! 🎁</h1>
+  </div>
+
+  <main>
+    <div class="wrap">
+      <section class="hero" id="top">
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="hero-media" aria-hidden="true"></div>
+            <div class="hero-content">
+              <div class="kicker"><span class="dot"></span> 🎄 Itinerario 10 días en París y región 🎁</div>
+              <h2 class="title">10 días en <span>París</span> 🎅</h2>
+              <p class="lead">Programa completo: monumentos de París, Versalles, Disney, Center Parcs (2-3 días), actividades divertidas (BattleKart, karting, etc.).</p>
+              <div class="cta-row">
+                <a class="btn primary" href="#programme">Ver el programa (10 días)</a>
+                <a class="btn" href="#services">Información práctica</a>
+                <a class="btn" href="#highlights">Galería de lugares</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="side">
+            <div class="mini">
+              <div class="img" style="background-image: url('https://images.unsplash.com/photo-1609971757431-439cf7b4141b?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000');"></div>
+              <div class="body">
+                <h3>Organización</h3>
+                <p>Visitas en horas tranquilas. Fotos cuando la luz es buena.</p>
+              </div>
+            </div>
+            <div class="mini">
+              <div class="img" style="background-image: url('https://images.unsplash.com/photo-1761409337593-4fd5a5ddf4e9?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000');"></div>
+              <div class="body">
+                <h3>Versalles</h3>
+                <p>Palacio (Galería de los Espejos) + jardines. Opción: carrito o barca.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="highlights">
+        <div class="section-head">
+          <h2>🎁 Momentos destacados 🎄</h2>
+          <div class="hint">✨ Haz clic en una tarjeta para ampliar la foto. ✨</div>
+        </div>
+        <div class="grid">
+          <article class="card" data-title="Tour Eiffel" data-img="https://images.unsplash.com/photo-1609971757431-439cf7b4141b?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1609971757431-439cf7b4141b?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">🏙️ <b>Eiffel</b></div>
+              <h4>Torre Eiffel</h4>
+              <p>Visita al final de la tarde (mejor luz). Opción: subir a la cima, copa de champán.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="El Louvre" data-img="https://images.unsplash.com/photo-1512075021972-fd248fb21ee7?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1512075021972-fd248fb21ee7?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">🖼️ <b>Cultura</b> - Louvre</div>
+              <h4>El Louvre</h4>
+              <p>Museo de arte. Recorrido para ver lo esencial (Mona Lisa, grandes salas).</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Museo de Orsay" data-img="https://images.unsplash.com/photo-1764929316321-a920a59306df?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1764929316321-a920a59306df?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">🎨 <b>Estilo</b> - Orsay</div>
+              <h4>Museo de Orsay</h4>
+              <p>Museo de los impresionistas. Paseo por el Sena y fotos en el Puente Alejandro III.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Arco de Triunfo" data-img="https://images.unsplash.com/photo-1650531365199-b24fcecc1fd2?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1650531365199-b24fcecc1fd2?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">🌟 <b>Panorama</b> - Arco</div>
+              <h4>Arco de Triunfo</h4>
+              <p>Monumento histórico. Opción: subir a la cima para vista panorámica de París.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Montmartre - Sacré-Cœur" data-img="https://images.unsplash.com/photo-1765887362963-c67c7d221802?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1765887362963-c67c7d221802?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">🕯️ <b>Romántico</b> - Montmartre</div>
+              <h4>Montmartre - Sacré-Cœur</h4>
+              <p>Barrio artístico, basílica con vista sobre París. Paseo por las callejuelas. Opción: pastelería.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Notre-Dame & Sena" data-img="https://images.unsplash.com/photo-1751067054249-d8e8cef48565?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1751067054249-d8e8cef48565?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">⛪ <b>Histórico</b> - Isla de la Cité</div>
+              <h4>Notre-Dame</h4>
+              <p>Catedral (exterior) + paseo por los muelles del Sena. Librerías, fotos.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Ópera Garnier" data-img="https://images.unsplash.com/photo-1745503288034-968ba4bedbf9?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1745503288034-968ba4bedbf9?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">🎭 <b>Elegancia</b> - Garnier</div>
+              <h4>Ópera Garnier</h4>
+              <p>Ópera histórica. Opción: visita guiada o espectáculo. Compras en los Grandes Bulevares.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Versalles" data-img="https://images.unsplash.com/photo-1758648995546-fab2a8196718?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1758648995546-fab2a8196718?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">👑 <b>Real</b> - Versalles</div>
+              <h4>Versalles</h4>
+              <p>Palacio real (Galería de los Espejos) + jardines. Opción: barca en el Gran Canal, Trianon.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Disneyland Paris" data-img="https://images.unsplash.com/photo-1664212389946-97cbe53ea396?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1664212389946-97cbe53ea396?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">✨ <b>Magie</b> - Disney</div>
+              <h4>Disneyland Paris</h4>
+              <p>Parque de atracciones. Atracciones, espectáculos, desfile. Opción: acceso prioritario, restaurante reservado.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Center Parcs - Sologne" data-img="https://th.bing.com/th/id/OIP.WAWWtUKyO2ALqLelv1m-tAHaDx?w=341&h=178&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3">
+            <div class="media" style="background-image:url('https://th.bing.com/th/id/OIP.WAWWtUKyO2ALqLelv1m-tAHaDx?w=341&h=178&c=7&r=0&o=7&dpr=2&pid=1.7&rm=3');"></div>
+            <div class="content">
+              <div class="tag">🌲 <b>Naturaleza</b> - Sologne</div>
+              <h4>Center Parcs Sologne</h4>
+              <p>Dominio en el bosque. Cabaña, spa, piscina, río salvaje. Relajación en la naturaleza.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Disneyland París" data-img="https://images.unsplash.com/photo-1664212389946-97cbe53ea396?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1664212389946-97cbe53ea396?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">✨ <b>Magia</b> - Disney</div>
+              <h4>Disneyland París</h4>
+              <p>Parque de atracciones. Atracciones, espectáculos, desfile. Opción: acceso prioritario, restaurante reservado.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Karting / BattleKart" data-img="https://cdn.wbtourisme.be/sites/default/files/60600.jpg">
+            <div class="media" style="background-image:url('https://cdn.wbtourisme.be/sites/default/files/60600.jpg');"></div>
+            <div class="content">
+              <div class="tag">🏎️ <b>Adrenalina</b> - Kart</div>
+              <h4>Karting + BattleKart</h4>
+              <p>Karting clásico + BattleKart (karting con mini-juegos). Noche divertida.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="programme">
+        <div class="section-head">
+          <h2>🎅 Programa día por día (10 días) 🎁</h2>
+          <div class="hint">✨ Organización lógica por sector geográfico. ✨</div>
+        </div>
+
+        <div class="itinerary">
+          <div class="tabs hidden" role="tablist" aria-label="Días">
+            <div class="tab active" role="tab" tabindex="0" data-day="d1">1️⃣ Llegada</div>
+            <div class="tab" role="tab" tabindex="0" data-day="d2">2️⃣ Eiffel & Torre Montparnasse</div>
+            <div class="tab" role="tab" tabindex="0" data-day="d3">3️⃣ Louvre & Tuileries</div>
+            <div class="tab" role="tab" tabindex="0" data-day="d4">4️⃣ Versalles</div>
+            <div class="tab" role="tab" tabindex="0" data-day="d5">5️⃣ Montmartre & Ópera</div>
+            <div class="tab" role="tab" tabindex="0" data-day="d6">6️⃣ Notre-Dame & Marais</div>
+            <div class="tab" role="tab" tabindex="0" data-day="d7">7️⃣ Center Parcs D1</div>
+            <div class="tab" role="tab" tabindex="0" data-day="d8">8️⃣ Center Parcs D2</div>
+            <div class="tab" role="tab" tabindex="0" data-day="d9">9️⃣ Disney</div>
+            <div class="tab" role="tab" tabindex="0" data-day="d10">🔟 Actividades divertidas y salida</div>
+          </div>
+
+          <!-- Day 1 -->
+          <div class="day active" id="d1" role="tabpanel">
+            <div class="day-grid">
+              <div class="day-main" data-day-number="1">
+                <div class="heroimg" style="background-image: url('https://images.unsplash.com/photo-1641504149722-770af01eae24?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000');"></div>
+                <div class="box">
+                  <h3>Día 1 - Llegada a París</h3>
+                  <ul class="bullets">
+                    <li>Llegada a París (aeropuerto CDG u Orly)
+                      <small>RER B desde CDG (35min) u Orlyval+RER B desde Orly (40min). Taxi disponible.</small>
+                    </li>
+                    <li>Instalación, descanso
+                      <small>Tiempo libre para instalarse y descansar después del viaje.</small>
+                    </li>
+                    <li>Paseo en coche por París
+                      <small>Tour panorámico: Campos Elíseos, Arco de Triunfo, Torre Eiffel, Sena, Isla de la Cité, Notre-Dame (exterior). 1-2h según itinerario. Aparcamiento de pago.</small>
+                    </li>
+                    <li>Cena en brasserie
+                      <small>Reservar si es viernes/sábado.</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="day-side">
+                <div class="info">
+                  <h4>Información práctica</h4>
+                  <div class="kpi">
+                    <div class="tile"><b>Duración</b><span>Medio día</span></div>
+                    <div class="tile"><b>Ritmo</b><span>Tranquilo</span></div>
+                  </div>
+                  <div class="actions">
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=Champs-%C3%89lys%C3%A9es+Paris">Champs-Élysées</a>
+                  </div>
+                </div>
+                <div class="mini">
+                  <div class="img" style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=2000');"></div>
+                  <div class="body">
+                    <h3>Tour de París en coche</h3>
+                    <p>Descubrimiento panorámico de los principales monumentos parisinos en coche.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 2 -->
+          <div class="day" id="d2" role="tabpanel">
+            <div class="day-grid">
+              <div class="day-main" data-day-number="2">
+                <div class="heroimg" style="background-image: url('https://images.unsplash.com/photo-1609971757431-439cf7b4141b?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000');"></div>
+                <div class="box">
+                  <h3>Día 2 - Torre Eiffel & Torre Montparnasse</h3>
+                  <ul class="bullets">
+                    <li>9h-12h: Torre Eiffel (cima recomendada)
+                      <small>Reservar en línea. Metro: Bir-Hakeim (línea 6). Duración visita: 2-3h.</small>
+                    </li>
+                    <li>12h30: Almuerzo Trocadéro o Campo de Marte
+                      <small>Vista sobre la Torre. Pausa para fotos.</small>
+                    </li>
+                    <li>14h-16h30: Torre Montparnasse (vista panorámica 360°)
+                      <small>Mejor vista sobre París + Eiffel. Metro: Montparnasse-Bienvenüe. Duración: 1-2h.</small>
+                    </li>
+                    <li>18h-21h30: BattleKart París
+                      <small>Karting con realidad aumentada. Reservar en línea. Varios centros: La Villette, Pantin. Cena en el lugar o después.</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="day-side">
+                <div class="info">
+                  <h4>Información práctica</h4>
+                  <div class="kpi">
+                    <div class="tile"><b>Duración</b><span>Día completo</span></div>
+                    <div class="tile"><b>Caminata</b><span>Moderada</span></div>
+                  </div>
+                  <div class="actions">
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.toureiffel.paris/fr">Sitio Torre Eiffel</a>
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.tourmontparnasse56.com/fr/">Tour Montparnasse</a>
+                  </div>
+                </div>
+                <div class="mini">
+                  <div class="img" style="background-image:url('https://cdn.wbtourisme.be/sites/default/files/60600.jpg');"></div>
+                  <div class="body">
+                    <h3>BattleKart</h3>
+                    <p>Karting con proyección de video (circuitos estilo Mario Kart). 45€/pers para 1h.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 3 -->
+          <div class="day" id="d3" role="tabpanel">
+            <div class="day-grid">
+              <div class="day-main" data-day-number="3">
+                <div class="heroimg" style="background-image: url('https://explorez.com/wp-content/uploads/2022/04/Paris_Le-Palais-du-Louvre_vichie81_AdobeStock_Editorial-Use-Only-scaled.jpeg');"></div>
+                <div class="box">
+                  <h3>Día 3 - Louvre & Jardín de las Tullerías</h3>
+                  <ul class="bullets">
+                    <li>9h-13h: Museo del Louvre
+                      <small>Gratis para menores de 26 años UE. Reservar en línea imprescindible. Ver: Mona Lisa, Venus de Milo, Victoria de Samotracia, ala Denon. Duración: 3-4h.</small>
+                    </li>
+                    <li>13h-14h30: Almuerzo Rue de Rivoli o Palacio Real
+                      <small>Palacio Real: jardín gratuito, bonitas arcadas.</small>
+                    </li>
+                    <li>15h-17h: Jardín de las Tullerías + Plaza de la Concordia
+                      <small>Gratis. Paseo, fotos. Vista sobre Obelisco, Arco de Triunfo a lo lejos. Opción: Museo de la Orangerie (Nenúfares de Monet).</small>
+                    </li>
+                    <li>17h-18h30: Arco de Triunfo
+                      <small>Subida a la cima para vista 360° (Campos Elíseos, Eiffel, La Défense). Metro: Charles de Gaulle-Étoile.</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="day-side">
+                <div class="info">
+                  <h4>Información práctica</h4>
+                  <div class="kpi">
+                    <div class="tile"><b>Duración</b><span>Día completo</span></div>
+                    <div class="tile"><b>Caminata</b><span>Importante</span></div>
+                  </div>
+                  <div class="actions">
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.louvre.fr">Sitio Louvre</a>
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.paris-arc-de-triomphe.fr">Arco de Triunfo</a>
+                  </div>
+                </div>
+                <div class="mini">
+                  <div class="img" style="background-image:url('https://images.unsplash.com/photo-1512075021972-fd248fb21ee7?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=2000');"></div>
+                  <div class="body">
+                    <h3>Louvre</h3>
+                    <p>Museo más grande del mundo. Prever 3-4h mínimo. Reservar en línea obligatorio.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 4 -->
+          <div class="day" id="d4" role="tabpanel">
+            <div class="day-grid">
+              <div class="day-main" data-day-number="4">
+                <div class="heroimg" style="background-image: url('https://lalarebelo.com/wp-content/uploads/2017/03/palacio-de-versalhes-tours-saindo-de-paris.jpg');"></div>
+                <div class="box">
+                  <h3>Día 4 - Château de Versailles</h3>
+                  <ul class="bullets">
+                    <li>8h30: Salida de París (RER C hasta Versailles-Château)
+                      <small>RER C (trayecto 45min desde centro París). Llegar temprano (apertura 9h).</small>
+                    </li>
+                    <li>9h-13h: Palacio (Apartamentos, Galería de los Espejos)
+                      <small>Reservar en línea. Audioguía disponible. Duración: 3-4h.</small>
+                    </li>
+                    <li>13h-14h: Almuerzo en el lugar
+                      <small>Restaurantes en el dominio. O picnic en los jardines (permitido).</small>
+                    </li>
+                    <li>14h-17h: Jardines + Gran Canal (opción: barca, carrito)
+                      <small>Jardines gratuitos (excepto días Grandes Aguas). Trianon + Aldea de la Reina: +2h.</small>
+                    </li>
+                    <li>17h30: Regreso a París
+                      <small>RER C. Cena tranquila en París.</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="day-side">
+                <div class="info">
+                  <h4>Información práctica</h4>
+                  <div class="kpi">
+                    <div class="tile"><b>Duración</b><span>Día completo</span></div>
+                    <div class="tile"><b>Caminata</b><span>Muy importante</span></div>
+                  </div>
+                  <div class="actions">
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.chateauversailles.fr">Sitio Versalles</a>
+                  </div>
+                </div>
+                <div class="mini">
+                  <div class="img" style="background-image:url('https://miviaje.com/wp-content/uploads/2020/10/galeria-espejos-versalles-1024x725.jpg');"></div>
+                  <div class="body">
+                    <h3>Galería de los Espejos</h3>
+                    <p>73 metros de largo, 357 espejos. Sala más impresionante del palacio.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 5 -->
+          <div class="day" id="d5" role="tabpanel">
+            <div class="day-grid">
+              <div class="day-main" data-day-number="5">
+                <div class="heroimg" style="background-image: url('http://4.bp.blogspot.com/-KwIkI_yqjLI/UOYkzRjZoGI/AAAAAAAAEgM/YG7ddSL-U4w/s640/5810795516_8334f4f624_z.jpg');"></div>
+                <div class="box">
+                  <h3>Día 5 - Montmartre & Opéra Garnier</h3>
+                  <ul class="bullets">
+                    <li>9h-12h30: Montmartre (Sacré-Cœur, Plaza del Tertre, Moulin Rouge)
+                      <small>Sacré-Cœur: gratis (cúpula: pago). Metro: Anvers o Abbesses. Subir a pie o funicular (1 billete metro). Paseo por callejuelas, artistas Plaza del Tertre.</small>
+                    </li>
+                    <li>12h30-14h: Almuerzo Montmartre
+                      <small>Ambiente barrio artístico.</small>
+                    </li>
+                    <li>15h-17h: Ópera Garnier (visita)
+                      <small>Visita libre o guiada. Arquitectura espectacular. Metro: Opéra. Duración: 1-2h.</small>
+                    </li>
+                    <li>17h-19h: Galerías Lafayette (compras, terraza panorámica gratuita)
+                      <small>A 5min a pie de la Ópera. Terraza roof-top: vista 360° sobre París (gratis).</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="day-side">
+                <div class="info">
+                  <h4>Información práctica</h4>
+                  <div class="kpi">
+                    <div class="tile"><b>Duración</b><span>Día completo</span></div>
+                    <div class="tile"><b>Caminata</b><span>Importante</span></div>
+                  </div>
+                  <div class="actions">
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.sacre-coeur-montmartre.com">Sacré-Cœur</a>
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.operadeparis.fr/visites/palais-garnier">Opéra Garnier</a>
+                  </div>
+                </div>
+                <div class="mini">
+                  <div class="img" style="background-image:url('https://images.unsplash.com/photo-1765887362963-c67c7d221802?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=2000');"></div>
+                  <div class="body">
+                    <h3>Montmartre</h3>
+                    <p>Barrio bohemio encaramado en una colina. Vista panorámica desde Sacré-Cœur.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 6 -->
+          <div class="day" id="d6" role="tabpanel">
+            <div class="day-grid">
+              <div class="day-main" data-day-number="6">
+                <div class="heroimg" style="background-image: url('https://images.unsplash.com/photo-1751067054249-d8e8cef48565?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000');"></div>
+                <div class="box">
+                  <h3>Día 6 - Museo de Orsay & Le Marais</h3>
+                  <ul class="bullets">
+                    <li>9h30-12h30: Museo de Orsay (impresionistas)
+                      <small>Gratis para menores de 26 años UE. Reservar en línea. Van Gogh, Monet, Renoir. Antigua estación. Metro: Solférino. Duración: 2-3h.</small>
+                    </li>
+                    <li>13h-14h30: Almuerzo Isla Saint-Louis
+                      <small>Berthillon (helados artesanales famosos).</small>
+                    </li>
+                    <li>15h-18h: Le Marais (barrio histórico)
+                      <small>Paseo: Plaza de los Vosgos, calle de los Rosiers (falafel), tiendas vintage. Gratis. Opción: Museo Picasso.</small>
+                    </li>
+                    <li>18h30-20h: Puente Alejandro III + Los Inválidos (exterior)
+                      <small>Fotos al atardecer. Puente más fotogénico. Gratis.</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="day-side">
+                <div class="info">
+                  <h4>Información práctica</h4>
+                  <div class="kpi">
+                    <div class="tile"><b>Duración</b><span>Día completo</span></div>
+                    <div class="tile"><b>Caminata</b><span>Moderada</span></div>
+                  </div>
+                  <div class="actions">
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.musee-orsay.fr">Musée d'Orsay</a>
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=Le+Marais+Paris">Le Marais</a>
+                  </div>
+                </div>
+                <div class="mini">
+                  <div class="img" style="background-image:url('https://images.unsplash.com/photo-1747464362908-8bc10e50ca3f?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=2000');"></div>
+                  <div class="body">
+                    <h3>Puente Alejandro III</h3>
+                    <p>Puente art nouveau con estatuas doradas. Atardecer magnífico.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 7 -->
+          <div class="day" id="d7" role="tabpanel">
+            <div class="day-grid">
+              <div class="day-main" data-day-number="7">
+                <div class="heroimg" style="background-image: url('https://parkaanbiedingen.nl/media/1160x870/parcs/croppedparcpics/het-meerdal-1-6023.jpg');"></div>
+                <div class="box">
+                  <h3>Día 7 - Center Parcs Sologne (J1)</h3>
+                  <ul class="bullets">
+                    <li>9h-11h: Salida de París hacia Sologne
+                      <small>Coche: 2h (180km). Center Parcs Les Hauts de Bruyères (Chaumont-sur-Tharonne).</small>
+                    </li>
+                    <li>11h-14h: Llegada, instalación cabaña
+                      <small>Check-in 15h (llegada posible antes para actividades). Almuerzo en el lugar o en ruta.</small>
+                    </li>
+                    <li>15h-19h: Aqua Mundo (piscina tropical)
+                      <small>Incluido en la estancia. Piscina 29°C, toboganes, río salvaje, jacuzzis. Bañador obligatorio (pantalón corto prohibido).</small>
+                    </li>
+                    <li>19h30: Cena en la cabaña o restaurante del dominio
+                      <small>Restaurantes o compras para cocinar. Supermercado en el lugar.</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="day-side">
+                <div class="info">
+                  <h4>Información práctica</h4>
+                  <div class="kpi">
+                    <div class="tile"><b>Trayecto</b><span>2h coche</span></div>
+                    <div class="tile"><b>Ritmo</b><span>Relajación</span></div>
+                  </div>
+                  <div class="actions">
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.centerparcs.fr">Center Parcs</a>
+                  </div>
+                </div>
+                <div class="mini">
+                  <div class="img" style="background-image:url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?fm=jpg&q=80&w=2000');"></div>
+                  <div class="body">
+                    <h3>Aqua Mundo</h3>
+                    <p>Piscina tropical 29°C. Toboganes, río salvaje, jacuzzis. Incluido en la estancia.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 8 -->
+          <div class="day" id="d8" role="tabpanel">
+            <div class="day-grid">
+              <div class="day-main" data-day-number="8">
+                <div class="heroimg" style="background-image: url('https://www.croixblanchedesologne.com/wp-content/uploads/2017/08/451806a5-afb1-3720-9b44-846b485a664c.jpg');"></div>
+                <div class="box">
+                  <h3>Día 8 - Center Parcs Sologne (J2)</h3>
+                  <ul class="bullets">
+                    <li>9h-12h: Actividades bosque (bicicleta, paseo)
+                      <small>Alquiler bicicleta. Recorridos señalizados en el bosque. Opción: tirolina, tiro con arco, mini-golf.</small>
+                    </li>
+                    <li>12h30-14h: Almuerzo
+                      <small>En la cabaña o restaurantes del dominio.</small>
+                    </li>
+                    <li>14h-18h: Aqua Mundo + Spa (opción)
+                      <small>Spa Balneo (1h30). Sauna, hammam, masajes. O volver a la piscina.</small>
+                    </li>
+                    <li>18h30-20h30: Cena + velada tranquila
+                      <small>Disfrutar de la cabaña, paseo nocturno en el bosque.</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="day-side">
+                <div class="info">
+                  <h4>Información práctica</h4>
+                  <div class="kpi">
+                    <div class="tile"><b>Actividades</b><span>Bosque + piscina</span></div>
+                    <div class="tile"><b>Ritmo</b><span>Relajado</span></div>
+                  </div>
+                </div>
+                <div class="mini">
+                  <div class="img" style="background-image:url('https://images.unsplash.com/photo-1511497584788-876760111969?fm=jpg&q=80&w=2000');"></div>
+                  <div class="body">
+                    <h3>Bosque de Sologne</h3>
+                    <p>400 hectáreas de bosque. Bicicleta, paseo, tirolina. Calma y naturaleza.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 9 -->
+          <div class="day" id="d9" role="tabpanel">
+            <div class="day-grid">
+              <div class="day-main" data-day-number="9">
+                <div class="heroimg" style="background-image: url('https://images.unsplash.com/photo-1664212389946-97cbe53ea396?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000');"></div>
+                <div class="box">
+                  <h3>Día 9 - Disneyland Paris</h3>
+                  <ul class="bullets">
+                    <li>8h-9h30: Salida Center Parcs hacia Disney (1h45, 140km)
+                      <small>Llegar antes de 10h (apertura 9h30/10h según temporada). Aparcamiento disponible.</small>
+                    </li>
+                    <li>10h-14h: Disneyland Parc (atracciones principales)
+                      <small>Big Thunder Mountain, Pirates, Phantom Manor, Star Wars, Buzz Lightyear. Aplicación móvil para tiempos de espera.</small>
+                    </li>
+                    <li>14h-15h: Almuerzo
+                      <small>Restaurantes del parque. O traer sándwiches (zona picnic dedicada fuera del parque).</small>
+                    </li>
+                    <li>15h-20h: Continuación atracciones + Desfile (17h generalmente)
+                      <small>Space Mountain, Peter Pan, It's a Small World. Desfile Disney: no perderse.</small>
+                    </li>
+                    <li>20h30: Espectáculo nocturno + fuegos artificiales
+                      <small>Delante del castillo. Mágico. Luego regreso a París (45min).</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="day-side">
+                <div class="info">
+                  <h4>Información práctica</h4>
+                  <div class="kpi">
+                    <div class="tile"><b>Duración</b><span>Día completo</span></div>
+                    <div class="tile"><b>Caminata</b><span>Muy importante</span></div>
+                  </div>
+                  <div class="actions">
+                    <a class="btn" target="_blank" rel="noreferrer" href="https://www.disneylandparis.com">Disneyland Paris</a>
+                  </div>
+                </div>
+                <div class="mini">
+                  <div class="img" style="background-image:url('https://i.ytimg.com/vi/8_HM2a0sx-Y/maxresdefault.jpg');"></div>
+                  <div class="body">
+                    <h3>Castillo Disney</h3>
+                    <p>Icono del parque. Espectáculo nocturno + fuegos artificiales que no hay que perderse.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 10 -->
+          <div class="day" id="d10" role="tabpanel">
+            <div class="day-grid">
+              <div class="day-main" data-day-number="10">
+                <div class="heroimg" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/bc/6e/93/coupole-galeries-lafayette.jpg?w=1100&h=600&s=1');"></div>
+                <div class="box">
+                  <h3>Día 10 - Actividades divertidas y compras</h3>
+                  <ul class="bullets">
+                    <li>10h-12h: Últimas compras / Shopping
+                      <small>Campos Elíseos, Galerías Lafayette, o Le Marais según gusto. Recuerdos.</small>
+                    </li>
+                    <li>12h30-14h: Almuerzo
+                      <small>Última brasserie parisina.</small>
+                    </li>
+                    <li>14h30-16h30: Actividad divertida a elegir
+                      <small>Opciones: Karting Bercy, Bowling, Escape Game, Flyview París (realidad virtual sobrevuelo París).</small>
+                    </li>
+                    <li>17h: Salida hacia aeropuerto o última velada
+                      <small>Según hora de vuelo. O cena de despedida + crucero Sena (opción según fórmula).</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="day-side">
+                <div class="info">
+                  <h4>Información práctica</h4>
+                  <div class="kpi">
+                    <div class="tile"><b>Duración</b><span>Medio día</span></div>
+                    <div class="tile"><b>Ritmo</b><span>Flexible</span></div>
+                  </div>
+                </div>
+                <div class="mini">
+                  <div class="img" style="background-image:url('https://tse3.mm.bing.net/th/id/OIP.KtchuxV0qyEn-JxIF2ajfAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+                  <div class="body">
+                    <h3>Actividades divertidas</h3>
+                    <p>Karting, bowling, escape game o VR. Terminar con belleza antes de la salida.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="services">
+        <div class="section-head">
+          <h2>🎄 Información práctica 🎁</h2>
+          <div class="hint">✨ Organización para el confort y la seguridad. ✨</div>
+        </div>
+
+        <div class="grid">
+          <article class="card" data-title="Transporte organizado" data-img="https://images.unsplash.com/photo-1758576370277-1581ec6e50bf?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1758576370277-1581ec6e50bf?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">🚘 <b>Transporte</b></div>
+              <h4>Desplazamientos organizados</h4>
+              <p>Transporte previsto para París, Versalles, Disney, Sologne.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Timing anti-multitud" data-img="https://images.unsplash.com/photo-1512075021972-fd248fb21ee7?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1512075021972-fd248fb21ee7?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">⏱️ <b>Organización</b></div>
+              <h4>Horarios optimizados</h4>
+              <p>Visitas en horas tranquilas para evitar las multitudes.</p>
+            </div>
+          </article>
+
+          <article class="card" data-title="Recuerdos foto" data-img="https://images.unsplash.com/photo-1747464362908-8bc10e50ca3f?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1747464362908-8bc10e50ca3f?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=1200');"></div>
+            <div class="content">
+              <div class="tag">📸 <b>Recuerdo</b></div>
+              <h4>Fotos</h4>
+              <p>Se toman las fotos en los buenos momentos para la luz y el decorado.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="notes">
+        <div class="section-head">
+          <h2>🎁 Notas y opciones 🎄</h2>
+          <div class="hint">✨ A adaptar según los deseos. ✨</div>
+        </div>
+        <div class="itinerary" style="padding:14px">
+          <div class="day-grid" style="padding:0">
+            <div class="info">
+              <h4>Opciones suplementarias</h4>
+              <ul class="bullets">
+                <li>Guía para Louvre / Versalles
+                  <small>Más historia, menos espera.</small>
+                </li>
+                <li>Restaurante gastronómico o brasserie
+                  <small>Según deseo.</small>
+                </li>
+                <li>Crucero cena sobre el Sena
+                  <small>Vista sobre París iluminado durante la cena.</small>
+                </li>
+              </ul>
+            </div>
+            <div class="info">
+              <h4>Consejos prácticos</h4>
+              <ul class="bullets">
+                <li>Zapatos cómodos + chaqueta
+                  <small>Mucha caminata prevista.</small>
+                </li>
+                <li>Ritmo equilibrado
+                  <small>Alternar visitas, actividades divertidas y descanso.</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="foot">
+          <div>
+            <b>París & Región - 10 días</b><br>
+            <span>Monumentos - Versalles - Disney - BattleKart/Karting - Center Parcs Sologne.</span>
+          </div>
+          <div class="cta-row" style="margin:0">
+            <a class="btn primary" href="#top">Volver arriba</a>
+            <a class="btn" href="#programme">Programa</a>
+          </div>
+        </div>
+        <div style="margin-top:10px; font-size:12px; color:rgba(255,255,255,.45)">
+          Fotos: Unsplash (enlaces directos). Esta presentación es un concepto de itinerario - horarios/reservas a ajustar según fechas y disponibilidades.
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" inert>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Ampliación foto">
+      <div class="modal-top">
+        <div class="t" id="modalTitle">Foto</div>
+        <button class="x" id="close" type="button" aria-label="Cerrar">Cerrar</button>
+      </div>
+      <img class="modal-img" id="modalImg" alt="" />
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if(!id || id === '#') return;
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+        history.replaceState(null, '', id);
+      });
+    });
+
+    // Tabs - navigation par scroll
+    const tabs = Array.from(document.querySelectorAll('.tab'));
+    const days = Array.from(document.querySelectorAll('.day'));
+    const tabsContainer = document.querySelector('.tabs');
+    const topbar = document.querySelector('.topbar');
+    const programmeSection = document.getElementById('programme');
+    
+    function scrollToDay(dayId){
+      const dayEl = document.getElementById(dayId);
+      if(!dayEl) return;
+      dayEl.scrollIntoView({behavior:'smooth', block:'start'});
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.day === dayId));
+      days.forEach(d => d.classList.toggle('active', d.id === dayId));
+    }
+    
+    function updateMenus(){
+      // Détection jour actif
+      const scrollPos = window.scrollY + 150;
+      let activeDay = null;
+      days.forEach(day => {
+        const rect = day.getBoundingClientRect();
+        const dayTop = rect.top + window.scrollY;
+        const dayBottom = dayTop + rect.height;
+        if(scrollPos >= dayTop && scrollPos < dayBottom){
+          activeDay = day.id;
+        }
+      });
+      if(activeDay){
+        tabs.forEach(t => t.classList.toggle('active', t.dataset.day === activeDay));
+        days.forEach(d => d.classList.toggle('active', d.id === activeDay));
+      }
+      
+      // Gestion des deux menus
+      if(programmeSection){
+        const rect = programmeSection.getBoundingClientRect();
+        const inProgramme = rect.top <= 80 && rect.bottom > 150;
+        
+        if(inProgramme){
+          // Dans la section programme : cacher topbar, afficher tabs
+          topbar.classList.add('hidden');
+          tabsContainer.classList.remove('hidden');
+        } else {
+          // Hors de la section programme : afficher topbar, cacher tabs
+          topbar.classList.remove('hidden');
+          tabsContainer.classList.add('hidden');
+        }
+      }
+    }
+    
+    tabs.forEach(t => {
+      t.addEventListener('click', () => scrollToDay(t.dataset.day));
+      t.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') { 
+          e.preventDefault(); 
+          scrollToDay(t.dataset.day); 
+        }
+      });
+    });
+    
+    // Mettre à jour l'onglet actif lors du scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(updateMenus, 50);
+    });
+    
+    // Initialiser l'onglet actif au chargement
+    updateMenus();
+
+    // Modal gallery
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modalImg');
+      const modalTitle = document.getElementById('modalTitle');
+      const closeBtn = document.getElementById('close');
+
+      if (!modal || !modalImg || !modalTitle || !closeBtn) return;
+
+      function openModal(title, img){
+        if (!img) return;
+        modalTitle.textContent = title || 'Foto';
+        modalImg.src = img;
+        modalImg.alt = title || 'Foto';
+        modal.removeAttribute('inert');
+        modal.setAttribute('aria-hidden','false');
+        modal.classList.add('show');
+        document.body.style.overflow='hidden';
+        // Donner le focus au bouton de fermeture après un court délai pour éviter le conflit
+        setTimeout(() => {
+          closeBtn.focus();
+        }, 100);
+      }
+      function closeModal(){
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden','true');
+        modal.setAttribute('inert','');
+        modalImg.src='';
+        document.body.style.overflow='';
+      }
+
+      document.querySelectorAll('.card').forEach(c => {
+        c.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const title = c.dataset.title;
+          const img = c.dataset.img;
+          if (title && img) {
+            openModal(title, img);
+          }
+        });
+      });
+      
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+      }
+      
+      if (modal) {
+        modal.addEventListener('click', (e) => { 
+          if(e.target === modal) closeModal(); 
+        });
+      }
+      
+      window.addEventListener('keydown', (e) => { 
+        if(e.key === 'Escape' && modal && modal.classList.contains('show')) closeModal(); 
+      });
+    });
+  </script>
+</body>
+</html>
+
