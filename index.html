@@ -316,6 +316,7 @@
       /* Sur mobile, le topbar reste toujours visible */
       .topbar {
         transform: translateY(0) !important;
+        border-bottom: 2px solid rgba(220,38,38,.25);
       }
       
       .topbar.hidden {
@@ -338,6 +339,7 @@
         box-shadow: 0 4px 12px rgba(220,38,38,.15);
         z-index: 49;
         transform: translateY(0) !important;
+        border-bottom: none;
       }
       
       .tabs.mobile-open {
@@ -350,11 +352,13 @@
         transform: translateY(0) !important;
         max-height: 0;
         padding: 0 20px;
+        border-bottom: none;
       }
       
       .tabs.hidden.mobile-open {
         max-height: 500px;
         padding: 14px 20px;
+        border-bottom: 2px solid rgba(220,38,38,.25);
       }
       
       .tab {
@@ -372,7 +376,9 @@
       }
       
       .christmas-banner {
-        margin-top: 66px;
+        margin-top: 0;
+        border-bottom: 2px solid rgba(217,119,6,.4);
+        border-top: none;
       }
     }
     
