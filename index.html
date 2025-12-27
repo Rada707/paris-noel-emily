@@ -313,6 +313,16 @@
         padding-right: 60px;
       }
       
+      /* Sur mobile, le topbar reste toujours visible */
+      .topbar {
+        transform: translateY(0) !important;
+      }
+      
+      .topbar.hidden {
+        transform: translateY(0) !important;
+      }
+      
+      /* Le menu tabs est toujours caché par défaut sur mobile, s'ouvre via hamburger */
       .tabs {
         flex-direction: column;
         max-height: 0;
@@ -327,6 +337,7 @@
         backdrop-filter: blur(20px);
         box-shadow: 0 4px 12px rgba(220,38,38,.15);
         z-index: 49;
+        transform: translateY(0) !important;
       }
       
       .tabs.mobile-open {
@@ -336,7 +347,7 @@
       }
       
       .tabs.hidden {
-        transform: translateY(0);
+        transform: translateY(0) !important;
         max-height: 0;
         padding: 0 20px;
       }
@@ -358,6 +369,10 @@
       
       .day {
         scroll-margin-top: 200px;
+      }
+      
+      .christmas-banner {
+        margin-top: 66px;
       }
     }
     
@@ -1927,6 +1942,10 @@
       hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         tabsContainer.classList.toggle('mobile-open');
+        // Retirer la classe hidden si le menu est ouvert
+        if(tabsContainer.classList.contains('mobile-open')){
+          tabsContainer.classList.remove('hidden');
+        }
         const isOpen = hamburger.classList.contains('active');
         hamburger.setAttribute('aria-expanded', isOpen);
       });
@@ -1963,20 +1982,26 @@
         days.forEach(d => d.classList.toggle('active', d.id === activeDay));
       }
       
-      // Gestion des deux menus
-      if(programmeSection){
-        const rect = programmeSection.getBoundingClientRect();
-        const inProgramme = rect.top <= 80 && rect.bottom > 150;
-        
-        if(inProgramme){
-          // Dans la section programme : cacher topbar, afficher tabs
-          topbar.classList.add('hidden');
-          tabsContainer.classList.remove('hidden');
-        } else {
-          // Hors de la section programme : afficher topbar, cacher tabs
-          topbar.classList.remove('hidden');
-          tabsContainer.classList.add('hidden');
+      // Gestion des deux menus (uniquement sur desktop)
+      if(window.innerWidth > 768){
+        if(programmeSection){
+          const rect = programmeSection.getBoundingClientRect();
+          const inProgramme = rect.top <= 80 && rect.bottom > 150;
+          
+          if(inProgramme){
+            // Dans la section programme : cacher topbar, afficher tabs
+            topbar.classList.add('hidden');
+            tabsContainer.classList.remove('hidden');
+          } else {
+            // Hors de la section programme : afficher topbar, cacher tabs
+            topbar.classList.remove('hidden');
+            tabsContainer.classList.add('hidden');
+          }
         }
+      } else {
+        // Sur mobile : topbar toujours visible, tabs contrôlé par hamburger
+        topbar.classList.remove('hidden');
+        // Ne pas modifier tabs.hidden sur mobile, c'est géré par le hamburger
       }
     }
     
