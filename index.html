@@ -154,6 +154,15 @@
       background-clip: text;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
     }
+    .title .santa{
+      color: #D97706;
+      background: none;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: #D97706;
+      background-clip: unset;
+      text-shadow: 0 0 15px rgba(217,119,6,.9), 0 0 25px rgba(217,119,6,.7), 0 0 35px rgba(217,119,6,.5), 0 0 50px rgba(217,119,6,.3), 0 2px 12px rgba(0,0,0,.6);
+      filter: none;
+    }
     @media (max-width: 520px){.title{font-size:34px}}
     .lead{
       margin:0 0 18px; 
@@ -812,6 +821,24 @@
       font-size: 42px;
       font-weight: 700;
       line-height: 1.1;
+      letter-spacing: 2px;
+      animation: neonPulse 2s ease-in-out infinite;
+    }
+    
+    .christmas-banner h1 .banner-text{
+      color: #FFFFFF;
+      text-shadow: 
+        0 2px 8px rgba(0,0,0,.4),
+        0 4px 16px rgba(0,0,0,.3),
+        0 0 20px rgba(252,211,77,.5);
+      background: linear-gradient(135deg, #FFFFFF, #FCD34D);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
+    }
+    
+    .christmas-banner h1 .banner-emoji{
       color: #FCD34D;
       text-shadow: 
         0 0 15px rgba(252,211,77,1),
@@ -821,8 +848,11 @@
         0 0 70px rgba(252,211,77,.3),
         0 2px 8px rgba(0,0,0,.5),
         0 4px 12px rgba(0,0,0,.3);
-      letter-spacing: 2px;
-      animation: neonPulse 2s ease-in-out infinite;
+      background: none;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: #FCD34D;
+      background-clip: unset;
+      filter: none;
     }
     
     @keyframes neonPulse {
@@ -1290,7 +1320,7 @@
   </header>
 
   <div class="christmas-banner">
-    <h1>🎄 ¡Feliz Navidad Emily! 🎁</h1>
+    <h1><span class="banner-emoji">🎄</span> <span class="banner-text">¡Feliz Navidad Emily!</span> <span class="banner-emoji">🎁</span></h1>
   </div>
 
   <main>
@@ -1301,7 +1331,7 @@
             <div class="hero-media" aria-hidden="true"></div>
             <div class="hero-content">
               <div class="kicker"><span class="dot"></span> 🎄 Itinerario 10 días en París y región 🎁</div>
-              <h2 class="title">10 días en <span>París</span> 🎅</h2>
+              <h2 class="title">10 días en <span>París</span> <span class="santa">🎅</span></h2>
               <p class="lead">Programa completo: monumentos de París, Versalles, Disney, Center Parcs (2-3 días), actividades divertidas (BattleKart, karting, etc.).</p>
               <div class="cta-row">
                 <a class="btn primary" href="#programme">Ver el programa (10 días)</a>
